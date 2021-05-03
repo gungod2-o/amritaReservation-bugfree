@@ -1,0 +1,54 @@
+body,
+html {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/img/admin.jpg");
+background-position: center;
+padding-bottom: 50px;
+
+}
+
+.margin-0-auto{
+  margin: 0 auto;
+}
+
+
+.text-align{
+  text-align: center;
+}
+a{
+margin-right: 5px;
+margin-left: 2px;
+color: #1338BE;
+  font-size: 1.5em;
+}
+
+.place{
+  margin-top: -30px;
+  margin-left: 1200px;
+}
+
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+margin: 50px;
+margin-bottom: 50px;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
