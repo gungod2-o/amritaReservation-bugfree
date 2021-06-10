@@ -1,0 +1,110 @@
+<%- include("partial/header.ejs") -%>
+
+    <link rel="stylesheet" href="/css/admin.css">
+
+<h1>Welcome Admin</h1>
+<div class="place">
+  <a href="/sett">Settings</a>
+  <a href="/">LogOut</a>
+</div>
+<div id="ttchange" class="tabcontent">
+  <table class="table table-hover">
+                          <thead >
+                              <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Faculty</th>
+                                  <th scope="col">Request</th>
+                          </thead>
+                          <tbody>
+                          <% var i =0; clist.forEach((item) => { %>
+                            <tr>
+                                <th scope="row"><%=i%></th>
+                                <td><%=item.name%></td>
+                                <td><%=item.request%></td>
+                                <td><button type="button" id="<%=i%>.toString()+'rev'" class="btn btn-info">Review</button></td>
+                                <td><button type="button"id="<%=i%>.toString()+'acc'" class="btn btn-success"  onclick="this.disabled=true;this.innerHTML='Accepted';">Accept</button></td>
+                                <td><button type="button"id="<%=i%>.toString()+'rem'"class="btn btn-danger" onclick="$(this).closest('tr').remove();">Decline</button></td>
+                            </tr>
+                            <% }); %>
+                          </tbody>
+                      </table>
+</div>
+
+<div id="cancelled" class="tabcontent">
+  <table  class="table table-hover">
+  <thead >
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Request</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% var i = 10; cancel.forEach((item) => { %>
+      <tr>
+          <th scope="row"><%=i%></th>
+          <td><%=item.name%></td>
+          <td><%=item.request%></td>
+          <td><button type="button" id="<%=i%>.toString()+'rev'" class="btn btn-info">Review</button></td>
+          <td><button type="button"id="<%=i%>.toString()+'acc'" class="btn btn-success"  onclick="this.disabled=true;this.innerHTML='Accepted';">Accept</button></td>
+          <td><button type="button"id="<%=i%>.toString()+'rem'"class="btn btn-danger" onclick="$(this).closest('tr').remove();">Decline</button></td>
+      </tr>
+      <% }); %>
+
+  </tbody>
+</table>
+</div>
+
+<div id="reserved" class="tabcontent">
+  <table  class="table table-hover">
+  <thead >
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Request</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% var i = 20; reserve.forEach((item) => { %>
+      <tr>
+          <th scope="row"><%=i%></th>
+          <td><%=item.name%></td>
+          <td><%=item.request%></td>
+          <td><button type="button" id="<%=i%>.toString()+'rev'" class="btn btn-info">Review</button></td>
+          <td><button type="button"id="<%=i%>.toString()+'acc'" class="btn btn-success"  onclick="this.disabled=true;this.innerHTML='Accepted';">Accept</button></td>
+          <td><button type="button"id="<%=i%>.toString()+'rem'"class="btn btn-danger" onclick="$(this).closest('tr').remove();">Decline</button></td>
+      </tr>
+      <% }); %>
+  </tbody>
+</table>
+</div>
+
+
+<button class="tablink" onclick="openT('ttchange', this)" id="defaultOpen">Timetable Change Requests</button>
+<button class="tablink" onclick="openT('cancelled', this)">Cancelled Reservations </button>
+<button class="tablink" onclick="openT('reserved', this)">Reservation List</button>
+
+
+
+<script>
+function openT(click,elmnt) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  document.getElementById(click).style.display = "block";
+}
+
+document.getElementById("defaultOpen").click();
+
+</script>
+
+    <%- include("partial/footer.ejs") -%>
